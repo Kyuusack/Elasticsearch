@@ -14,8 +14,8 @@ curl -u "$ES_USER:$ES_PASS" -k -X POST "$ES_URL" \
     "query": {
       "bool": {
         "must": [
-          { "term": { "kibana.alert.workflow_status": "open" }},
-          { "match": { "kibana.alert.rule.tags": "event-of-interest" }}
+          { "term": { "kibana.alert.workflow_status": "open" }}, # Filtering logs security alert with value Open
+          { "match": { "kibana.alert.rule.tags": "event-of-interest" }} # Tag for identifier auto close security alert
         ]
       }
     },
