@@ -1,12 +1,79 @@
-# Elasticsearch
-# Learning Scripts for Elastic SIEM Enterprise 🚀
-This repository is your go-to resource for scripts and configuration examples born from my deep dive into Elastic SIEM Enterprise. 🧠 My main aim here is to help fellow SIEM Engineers like you truly master and make the most of Elastic SIEM's powerful features. 💪
+🔐 XSOAR IP Range Uploader
 
-You'll find a treasure trove of scripts designed to help you:
-- Automate routine SIEM management tasks ⚙️
-- Analyze log data and pinpoint security patterns 🔍
-- Develop custom detections and robust rules 🛡️
-- Experiment with new Elastic SIEM features ✨
+This Python script automates the process of adding IP address ranges (CIDR) to a Cortex XSOAR investigation using the !checkpoint-address-range-add command. It's especially useful for SOC or Blue Team operations dealing with threat intelligence or malicious IPs from external alerts.
+📁 Project Structure
 
-I hope this collection becomes an invaluable asset for all security pros working with Elastic SIEM Enterprise! 🌟
+.
+├── ip_ranges.txt         # List of CIDR ranges (one per line)
+├── script.py             # Main Python script
+└── README.md             # Documentation (this file)
 
+⚙️ Features
+
+    Reads a list of CIDR ranges from a text file.
+
+    Calculates the first and last usable IP from each range.
+
+    Sends a POST request to the XSOAR API with the appropriate command.
+
+    Takes input for Cookies, Investigation ID, and Session ID.
+
+    Loops through multiple IP ranges automatically.
+
+🧾 ip_ranges.txt Format
+
+Each line should contain a valid CIDR block, e.g.:
+
+192.168.1.0/24
+10.10.10.0/28
+203.0.113.0/29
+
+💻 How to Use
+
+    Create or update ip_ranges.txt with the list of CIDRs.
+
+    Run the script:
+
+    python3 script.py
+
+    Provide the required input when prompted:
+
+        Your XSOAR session Cookies
+
+        The Investigation ID
+
+        The Session ID from your Checkpoint system
+
+✅ Sample Output
+
+Input Your Cookies: D1SESSIONID=abcd1234...
+Input Investigation ID: 12345
+Input Session ID: CP1234567890
+
+Processing IP range: 192.168.1.0/24
+Success adding IP range 192.168.1.0/24
+
+Processing IP range: 10.10.10.0/28
+Success adding IP range 10.10.10.0/28
+
+🔐 Security Notes
+
+    Only use this script in secure and authorized environments.
+
+    Never commit cookies, session IDs, or sensitive data to a public repository.
+
+    For production use, remove verify=False from the requests.post() call and use a valid SSL certificate.
+
+🧰 Requirements
+
+    Python 3.x
+
+    Libraries:
+
+        requests
+
+        ipaddress (standard library, no installation needed)
+
+You can install requests via:
+
+pip install requests
