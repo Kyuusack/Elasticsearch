@@ -52,7 +52,7 @@ Each line should contain a valid CIDR block, e.g.:
 
    * Your XSOAR session **Cookies**
    * The **Investigation ID**
-   * The **Session ID** from your Checkpoint system
+   * The **Session ID** from your Checkpoint system using command _!checkpoint-login-and-get-session-id_
 
 ---
 
