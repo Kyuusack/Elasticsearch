@@ -12,7 +12,7 @@ This Python script automates the process of adding **IP address ranges (CIDR)** 
 ```
 .
 ├── ip_ranges.txt         # List of CIDR ranges (one per line)
-├── script.py             # Main Python script
+├── Blocking-XSOAR.py     # Main Python script
 └── README.md             # Documentation (this file)
 ```
 
